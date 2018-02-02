@@ -6,12 +6,16 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
 MongoClient.connect(db.url, (err, database) => {
+
   if(err) return console.log(err);
-  require('./app/routes')(app, database);
+  require('./app/routes')(app, database.db('redexp'));
+
   app.get('/', (req, res) => {
     res.sendFile('index.html', {root: __dirname});
   });
+
   app.listen(3000, () => {
     console.log('Listening on port 3000');
   });
+  
 });
