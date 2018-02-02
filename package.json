@@ -1,0 +1,21 @@
+{
+  "name": "redexp-backend",
+  "version": "0.0.1",
+  "description": "Backend for RedExp project",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/smokfyz/redexp-backend",
+  "author": "smokfyz <ivansharapenkov@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.12"
+  }
+}
