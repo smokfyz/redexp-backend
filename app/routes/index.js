@@ -1,7 +1,7 @@
-const storyRoutes = require('./story_routes');
+const storyRoutes = require('./transactions_routes');
 
 module.exports = function(app, db) {
 
   storyRoutes(app, db);
-  
+
 }
