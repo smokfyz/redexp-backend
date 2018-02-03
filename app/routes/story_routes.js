@@ -2,19 +2,14 @@ const ObjectID = require('mongodb').ObjectID;
 
 module.exports = function(app, db) {
 
-  app.get('/story/:id', (req, res) => {
+  app.get('/transactions', (req, res) => {
+
     const id = req.params.id;
-    const details = { '_id': new ObjectID(id) };
-    db.collection('transactions').findOne(details, (err, item) => {
-      if (err) {
-        res.send({'error':'An error has occurred'});
-      } else {
-        res.send(item);
-      }
-    });
+    const details = { '$slice': -10 };
+    db.collection('transactions').find(details);
   });
 
-  app.post('/story', (req, res) => {
+  app.post('/transactions', (req, res) => {
     const transaction = {
       type: req.body.type,
       amount: req.body.amount,
@@ -22,6 +17,9 @@ module.exports = function(app, db) {
       date: req.body.date,
       reason: req.body.reason
     }
+
+    res.setHeader("Access-Control-Allow-Origin", "*");
+
     db.collection('transactions').insert(transaction, (err, result) => {
       if(err) {
         res.send({ 'error': 'An error has occurred' })
