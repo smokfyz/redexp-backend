@@ -3,16 +3,18 @@
   "version": "0.1.0",
   "description": "Backend for RedExp project",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/smokfyz/redexp-backend",
   "author": "smokfyz <ivansharapenkov@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
     "mongodb": "^3.0.2"
   },
   "devDependencies": {
