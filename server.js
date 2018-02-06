@@ -15,6 +15,7 @@ app.use(session({
 
 app.get('/', (req, res) => {
   console.log(req.sessionID);
+  console.log(req.session.userId);
   res.sendFile(__dirname + '/index.html');
 });
 
