@@ -8,9 +8,11 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(session({
   secret: 'hello world',
-  resave: false,
+  resave: true,
   saveUninitialized: true,
-  cookie: { secure: false }
+  cookie: {
+    secure: false
+  }
 }));
 
 app.get('/', (req, res) => {

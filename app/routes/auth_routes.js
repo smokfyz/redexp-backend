@@ -3,7 +3,9 @@ const bcrypt = require('bcrypt');
 module.exports = function(app, db) {
 
   app.post('/login', (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", req.headers.origin);
+    res.header("Access-Control-Allow-Credentials", 'true');
+    console.log(req.session.userId);
     const user = db.collection('users').findOne({username: req.body.username}, (err, user) => {
       if(err) {
         res.send({ 'error': 'An error has occurred' });
