@@ -1,2 +1,2 @@
 # redexp-backend
-RedExp - управление финансами
+RedExp
